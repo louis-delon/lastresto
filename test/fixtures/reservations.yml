@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-03-27
+  seller: one
+  buyer: one
+  offer: one
+
+two:
+  date: 2018-03-27
+  seller: two
+  buyer: two
+  offer: two
