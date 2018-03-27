@@ -1,5 +1,6 @@
 class Seller < ApplicationRecord
-
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :offers
   has_many :reservations
 
@@ -10,4 +11,6 @@ class Seller < ApplicationRecord
   validates :type, presence:true
   validates :phone_number, presence:true
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end

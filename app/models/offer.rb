@@ -1,4 +1,6 @@
 class Offer < ApplicationRecord
+  belongs_to :seller
+  belongs_to :category
 
   belongs_to :seller
   belongs_to :category
@@ -9,5 +11,6 @@ class Offer < ApplicationRecord
   validates :date, presence:true
   validates :duration, presence:true
   validates :description, presence:true
+
 
 end

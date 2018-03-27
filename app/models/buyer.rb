@@ -1,5 +1,6 @@
 class Buyer < ApplicationRecord
-
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :reservations
   has_many :preferences
 
@@ -8,4 +9,6 @@ class Buyer < ApplicationRecord
   validates :last_name, presence:true
   validates :phone, presence:true
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end

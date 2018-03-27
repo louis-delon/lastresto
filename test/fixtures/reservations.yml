@@ -2,12 +2,12 @@
 
 one:
   date: 2018-03-27
+  offer: one
   seller: one
   buyer: one
-  offer: one
 
 two:
   date: 2018-03-27
+  offer: two
   seller: two
   buyer: two
-  offer: two

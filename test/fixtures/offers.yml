@@ -3,17 +3,21 @@
 one:
   title: MyString
   price: MyString
-  date: 2018-03-27 17:05:38
-  duration: 1
-  description: MyText
+  date: 2018-03-27
+  duration: MyString
+  description: MyString
+  file: MyString
+  quantity: MyString
   seller: one
   category: one
 
 two:
   title: MyString
   price: MyString
-  date: 2018-03-27 17:05:38
-  duration: 1
-  description: MyText
+  date: 2018-03-27
+  duration: MyString
+  description: MyString
+  file: MyString
+  quantity: MyString
   seller: two
   category: two
