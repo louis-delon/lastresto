@@ -130,7 +130,7 @@ offer1 = Offer.create!(
     title: " Remise sur le menu enfant de -30%",
     seller_id: resto1.id,
     category_id: category1.id,
-    date: "30/03/2018",
+    date: Faker::Date.forward(7),
     price: "25 euros",
     duration: "toute reservation prise avant 21h30",
     description: "tous nos plats sont fait maison",
@@ -141,7 +141,7 @@ offer2 = Offer.create!(
     title: "Offre spéciale: toute la carte à -50%",
     seller_id: resto2.id,
     category_id: category4.id,
-    date: "10/03/2018",
+    date: Faker::Date.forward(7),
     price: "25 euros",
     duration: "entre 21h30 et 23h30",
     description: "tous nos plats sont fait maison",
@@ -154,7 +154,7 @@ offer3 = Offer.create!(
     title: "Remise immédiate sur tous lfruits de mer de -20%",
     seller_id: resto3.id,
     category_id: category2.id,
-    date: "10/03/2018",
+    date: Faker::Date.forward(7),
     price: "25 euros",
     duration: "toute reservation prise avant 20h30",
     description: "tous nos plats sont fait maison",
@@ -166,7 +166,7 @@ offer4 = Offer.create!(
     title: "Remise immédiate sur le menu degustation de -20%",
     seller_id: resto4.id,
     category_id: category3.id,
-    date: "10/04/2018",
+    date: Faker::Date.forward(7),
     price: "25 euros",
     duration: "happy hour avant 20h00",
     description: "tous nos produits sont frais",
@@ -178,7 +178,7 @@ offer5 = Offer.create!(
     title: "Remise immédiate sur le menu degustation de -20%",
     seller_id: resto4.id,
     category_id: category3.id,
-    date: "15/04/2018",
+    date: Faker::Date.forward(7),
     price: "30 euros",
     duration: "-20 sur tout le restaurant",
     description: "tous nos produits sont frais",
@@ -190,7 +190,7 @@ offer5 = Offer.create!(
 puts "creating reservations"
 reservation1 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date:Faker::Date.forward(23),
+    date: Date.today,
     buyer_id: louis.id,
     seller_id: resto1.id,
     offer_id: offer2.id
@@ -198,7 +198,7 @@ reservation1 = Reservation.create!(
 
 reservation2 = Reservation.create!(
     comment: 'nous sommes 4',
-    date:Faker::Date.forward(23),
+    date: Date.today,
     buyer_id: olivier.id,
     seller_id: resto2.id,
     offer_id: offer1.id
@@ -206,7 +206,7 @@ reservation2 = Reservation.create!(
 
 reservation3 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date:Faker::Date.forward(23),
+    date: Date.today,
     buyer_id: louis.id,
     seller_id: resto3.id,
     offer_id: offer3.id
@@ -214,16 +214,16 @@ reservation3 = Reservation.create!(
 
 reservation4 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date:Faker::Date.forward(23),
+    date: Date.today,
     buyer_id: sophie.id,
     seller_id: resto4.id,
     offer_id: offer4.id
     )
 #
-  10.times do
+  25.times do
   Reservation.create!(
     comment: Faker::Dune.saying,
-    date:Faker::Date.forward(23),
+    date: Date.today,
     buyer_id: ((Buyer.first.id)..(Buyer.last.id)).to_a.sample,
     seller_id: ((Seller.first.id)..(Seller.last.id)).to_a.sample,
     offer_id:((Offer.first.id)..(Offer.last.id)).to_a.sample,
