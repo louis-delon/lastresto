@@ -1,11 +1,7 @@
 class Category < ApplicationRecord
 
-  belongs_to :preference
-  belongs_to :offer
-  validates :name, presence:true
-
-  belongs_to :preference
-  belongs_to :offer
+  has_many :preferences
+  has_many :offer
   validates :name, presence:true
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327181643) do
+ActiveRecord::Schema.define(version: 20180328101045) do
 
   create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180327181643) do
     t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
     t.index ["buyer_id"], name: "index_reservations_on_buyer_id"
     t.index ["offer_id"], name: "index_reservations_on_offer_id"
     t.index ["seller_id"], name: "index_reservations_on_seller_id"
@@ -91,7 +92,6 @@ ActiveRecord::Schema.define(version: 20180327181643) do
     t.string "address"
     t.string "zip_code"
     t.string "city"
-    t.string "type"
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

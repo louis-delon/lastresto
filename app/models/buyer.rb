@@ -1,8 +1,8 @@
 class Buyer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :reservations
-  has_many :preferences
+  has_many :reservations, dependent: :destroy
+  has_many :preferences, dependent: :destroy
 
   validates :pseudo, presence:true, length: {minimum: 3}
   validates :first_name, presence:true
