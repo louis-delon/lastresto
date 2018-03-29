@@ -1,12 +1,27 @@
 class OffersController < ApplicationController
 
+  before_action :set_offer, only: [:new, :create, :edit, :update]
+
   def index
+    @offers = policy_scope(Offer)
   end
 
   def new
+    @seller = Seller.find(params[:seller_id])
+    @offer = Offer.new
+    authorize @offer
   end
 
   def create
+    @seller = Seller.find(params[:seller_id])
+    @offer = Offer.new(params_offer)
+    authorize @offer
+
+    if @offer.save
+      redirect_to seller_offers_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,6 +34,26 @@ class OffersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def params_offer
+    params.require(:offer).permit(
+      :title,
+      :price,
+      :date,
+      :duration,
+      :description,
+      :file,
+      :quantity,
+      :seller_id,
+      :category_id
+    )
+  end
+
+  def set_offer
+
   end
 
 end

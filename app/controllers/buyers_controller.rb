@@ -1,15 +1,13 @@
 class BuyersController < ApplicationController
 
-  before_action :buyer_is_owner, only: [:edit, :update]
+  before_action :set_buyer, only: [:show, :edit, :update]
 
   # to be manage when an admin will be created
   # def index
   # end
 
   def show
-    @buyer = Buyer.find(params[:id])
     @buyer_avatar = @buyer.avatar || "default-avatar.png"
-    authorize @buyer
   end
 
   def edit
@@ -32,8 +30,9 @@ class BuyersController < ApplicationController
     )
   end
 
-  def buyer_is_owner
-    @buyer = current_buyer
+  def set_buyer
+    @buyer = Buyer.find(params[:id])
     authorize @buyer
   end
+
 end

@@ -1,8 +1,7 @@
 class SellersController < ApplicationController
 
   skip_before_action :authenticate_seller!, only: [:index, :show]
-  before_action :seller_is_owner, only: [:edit, :update]
-  before_action :set_seller, only: [:show]
+  before_action :set_seller, only: [:show, :edit, :update]
 
   def index
     @sellers = policy_scope(Seller).order(created_at: :desc)
@@ -22,7 +21,7 @@ class SellersController < ApplicationController
 
   private
 
-  def set_ser
+  def set_seller
     @seller = Seller.find(params[:id])
     authorize @seller
   end
@@ -38,7 +37,4 @@ class SellersController < ApplicationController
     )
   end
 
-  def seller_is_owner
-    @seller = current_seller
-    authorize @seller
-  end
+end

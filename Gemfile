@@ -33,6 +33,14 @@ gem 'devise'
 gem 'faker'
 gem 'pundit'
 
+
+gem 'figaro'
+gem 'font-awesome-sass'
+gem 'jquery-rails'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+gem 'autoprefixer-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

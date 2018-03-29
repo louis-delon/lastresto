@@ -2,17 +2,24 @@
 <html>
   <head>
     <title>Lastresto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FTERO</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <!-- Navbar css is given by thewagon components -->
+    <%= render 'shared/navbar' %>
+    <!-- improve default options of devise to dispaly messages to users when action on log or sign -->
+    <%= render 'shared/flashes' %>
 
-    <!-- come from devise to dispaly messages to users when action on log or sign -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
 
     <%= yield %>
   </body>
