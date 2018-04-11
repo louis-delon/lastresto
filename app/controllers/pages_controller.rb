@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 skip_before_action :authenticate_buyer!, only: :home
 
   def home
-    @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
 end

@@ -1,10 +1,14 @@
 class ApplicationPolicy
-  attr_reader :user, :record
 
-  def initialize(user, record)
-    @user = user
+  attr_reader :seller, :record, :buyer
+
+  def initialize(context, record)
+     raise Pundit::NotAuthorizedError, "must be logged in" unless context
+    @seller = context.seller
+    @buyer = context.buyer
     @record = record
   end
+
 
   def index?
     false
@@ -38,17 +42,19 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+
   class Scope
-    attr_reader :user, :scope
+    attr_reader :seller, :buyer, :scope
 
-    def initialize(user, scope)
-      @user = user
+    def initialize(context, scope)
+      @seller = context.seller
+      @buyer = context.buyer
       @scope = scope
-
     end
 
     def resolve
       scope
     end
   end
+
 end

@@ -21,156 +21,25 @@
                   </div>
                 </div>
 
-                <%=  @offers.each do |offer|  %>
+                <% @offers.each do |offer|  %>
                   <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
                     <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
                       <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                        <h3>Item title</h3>
-                        <h3>en savoir plus</h3>
-                        <p>$238</p>
+                        <h3><%= offer.seller.name %></h3>
+                        <p><%= offer.title %></p>
+                        <p><%= offer.date %></p>
                       </div>
                       <div class="with-overlay__content d-flex justify-content-center">
                         <div class="align-self-center ph-30">
-                          <h3 class="mb-10">Item title</h3>
-                          <h3 claen savoir plus>Item
-                          <p class="mb-20">Far far away, behind the word mountains</p>
-                          <p class="mb-60">$238</p>
-                            <Réserver class="btn btn-small">Réserver</Réserver>
+                          <h3 class="mb-10"><%= offer.title %></h3>
+                          <p class="mb-20"><%= offer.description %></p>
+                          <p class="mb-60"><%= offer.price %></p>
+                            <Button class="btn btn-small">Réserver</Button>
                         </div>
                       </div>
                     </div>
                   </div>
                 <% end %>
-
-
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
-                  <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
-                    <div class="align-self-end"><img class="mb-120" src="assets/pics/pic-100.svg" alt=""/>
-                      <h3>Item title</h3>
-                      <h3>en savoir plus</h3>
-                      <p>$238</p>
-                    </div>
-                    <div class="with-overlay__content d-flex justify-content-center">
-                      <div class="align-self-center ph-30">
-                        <h3 class="mb-10">Item title</h3>
-                        <h3 claen savoir plus>Item
-                        <p class="mb-20">Far far away, behind the word mountains</p>
-                        <p class="mb-60">$238</p>
-                          <Réserver class="btn btn-small">Réserver</Réserver>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
 
               </div>
             </div>

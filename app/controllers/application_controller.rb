@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+
+  def pundit_user
+    CurrentContext.new(current_seller, current_buyer)
+  end
+
+
   private
 
   def skip_pundit?
