@@ -44,6 +44,7 @@ class ApplicationPolicy
     def initialize(user, scope)
       @user = user
       @scope = scope
+
     end
 
     def resolve
