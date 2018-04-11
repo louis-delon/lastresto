@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 
-  before_action :set_offer, only: [:new, :create, :edit, :update]
+  before_action :set_offer, only: [:show,:edit, :update]
 
   def index
     @offers = policy_scope(Offer)
@@ -28,12 +28,16 @@ class OffersController < ApplicationController
   end
 
   def update
+    @offer.update(params_offer)
   end
 
   def show
+
   end
 
   def destroy
+    @offer.destroy
+    redirect_to root_path
   end
 
   private
@@ -53,7 +57,8 @@ class OffersController < ApplicationController
   end
 
   def set_offer
-
+    @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
 end
