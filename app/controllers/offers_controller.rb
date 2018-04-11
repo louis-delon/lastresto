@@ -52,7 +52,8 @@ class OffersController < ApplicationController
       :file,
       :quantity,
       :seller_id,
-      :category_id
+      :category_id,
+      :image
     )
   end
 
