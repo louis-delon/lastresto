@@ -1,9 +1,15 @@
 class PagesController < ApplicationController
 
 skip_before_action :authenticate_buyer!, only: :home
+skip_before_action :authenticate_buyer!, only: :restaurantspace
+layout false, only: [:restaurantspace]
 
   def home
     @offers = policy_scope(Offer)
+  end
+
+  def restaurantspace
+
   end
 
 end

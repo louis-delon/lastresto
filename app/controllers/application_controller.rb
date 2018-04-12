@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
-
+  layout :layout
 
   include Pundit
 
@@ -26,6 +26,13 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def layout
+    # only turn it off for login pages:
+    is_a?(Devise::SessionsController) ? false : "application"
+    # or turn layout off for every devise controller:
+    devise_controller? && "application"
   end
 
 end
