@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
-  layout :layout
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pundit
 
@@ -16,11 +16,9 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
-
   def pundit_user
     CurrentContext.new(current_seller, current_buyer)
   end
-
 
   private
 
@@ -28,11 +26,24 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  def layout
-    # only turn it off for login pages:
-    is_a?(Devise::SessionsController) ? false : "application"
-    # or turn layout off for every devise controller:
-    devise_controller? && "application"
-  end
 
+  protected
+
+  # allow to add others strong parameters in devise for creation of a user
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(
+                                      :sign_up,
+                                      keys: [
+                                            :name,
+                                            :adress,
+                                            :zip_code,
+                                            :city,
+                                            :phone_number,
+                                            :avatar
+                                            ]
+                                      )
+  end
 end
+
+
+

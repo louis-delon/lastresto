@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # allow to setup devise controlers to override default devise controllers,
+  # for details, see in App/controllers/sellers/
   devise_for :sellers, controllers: {
         sessions: 'sellers/sessions',
         registrations: 'sellers/registrations'
