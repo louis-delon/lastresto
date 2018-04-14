@@ -13,6 +13,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    redirect_to
   end
 
   # GET /resource/edit

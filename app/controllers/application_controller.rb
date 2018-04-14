@@ -1,7 +1,10 @@
+# require_relative 'sellers/parameter_sanitizer'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   include Pundit
 
@@ -17,6 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def pundit_user
+    # allow to setup pundit according to users status
     CurrentContext.new(current_seller, current_buyer)
   end
 
@@ -26,23 +30,16 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-
   protected
 
-  # allow to add others strong parameters in devise for creation of a user
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-                                      :sign_up,
-                                      keys: [
-                                            :name,
-                                            :adress,
-                                            :zip_code,
-                                            :city,
-                                            :phone_number,
-                                            :avatar
-                                            ]
-                                      )
+  def devise_parameter_sanitizer
+    if resource_class == Seller
+      Seller::ParameterSanitizer.new(Seller, :seller, params)
+    else
+      super # Use the default one
+    end
   end
+
 end
 
 

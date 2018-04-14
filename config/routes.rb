@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # for details, see in App/controllers/sellers/
   devise_for :sellers, controllers: {
         sessions: 'sellers/sessions',
-        registrations: 'sellers/registrations'
+        registrations: 'sellers/registrations',
+        passwords: 'sellers/passwords'
       }
 
   devise_for :buyers

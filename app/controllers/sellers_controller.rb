@@ -26,15 +26,15 @@ class SellersController < ApplicationController
     authorize @seller
   end
 
-  def seller_params
-    params.require(:seller).permit(
-      :name,
-      :address,
-      :zip_code,
-      :city,
-      :phone_number,
-      :avatar
-    )
-  end
+  # def seller_params
+  #   params.require(:seller).permit(
+  #     :name,
+  #     :address,
+  #     :zip_code,
+  #     :city,
+  #     :phone_number,
+  #     :avatar
+  #   )
+  # end
 
 end
