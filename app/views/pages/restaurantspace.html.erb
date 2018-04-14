@@ -1,4 +1,16 @@
-<br>
-<div><%= link_to "Se connecter à mon espace", new_seller_session_path  %></div>
-<br>
-<div><%= link_to "Créer un compte",  new_seller_registration_path %></div>
+
+ <div>
+    <% if seller_signed_in? %>
+      <!-- Links when logged in -->
+      <%= link_to destroy_seller_session_path, method: :delete do %>
+        <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_seller_session_path, class: "navbar-wagon-item navbar-wagon-link", style: "color: blue" %>
+      <%= link_to "Sign up", new_seller_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+</div>
+
+

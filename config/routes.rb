@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # allow to setup devise controlers to override default devise controllers,
+  # allow to setup devise controllers to override default devise controllers,
   # for details, see in App/controllers/sellers/
   devise_for :sellers, controllers: {
         sessions: 'sellers/sessions',
@@ -8,15 +8,22 @@ Rails.application.routes.draw do
         passwords: 'sellers/passwords'
       }
 
-  devise_for :buyers
+  devise_for :buyers, controllers: {
+        sessions: 'buyers/sessions',
+        registrations: 'buyers/registrations',
+        passwords: 'buyers/passwords'
+      }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # create a homepage route for sellers login
   get 'pages/restaurantspace'
 
-  resources :sellers, only: [ :edit, :update, :show] do
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :sellers, only: [ :show] do
     resources :offers
   end
-  resources :buyers, only: [ :edit, :update, :show] do
+  resources :buyers, only: [ :show] do
     resources :reservations, only: [:new, :create, :edit, :update, :show]
   end
 

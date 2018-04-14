@@ -1,10 +1,11 @@
-# require_relative 'sellers/parameter_sanitizer'
+require_relative 'sellers/parameter_sanitizer'
+require_relative 'buyers/parameter_sanitizer'
+
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
   # before_action :configure_permitted_parameters, if: :devise_controller?
-
 
   include Pundit
 
@@ -35,12 +36,15 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == Seller
       Seller::ParameterSanitizer.new(Seller, :seller, params)
+    elsif resource_class == Buyer
+      Buyer::ParameterSanitizer.new(Buyer, :buyer, params)
     else
       super # Use the default one
     end
   end
 
 end
+
 
 
 
