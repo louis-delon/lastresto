@@ -3,7 +3,7 @@ class ApplicationPolicy
   attr_reader :seller, :record, :buyer
 
   def initialize(context, record)
-     raise Pundit::NotAuthorizedError, "must be logged in" unless context
+    raise Pundit::NotAuthorizedError, "must be logged in" unless context
     @seller = context.seller
     @buyer = context.buyer
     @record = record
