@@ -40,6 +40,7 @@ gem 'jquery-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'autoprefixer-rails'
+gem 'awesome_print'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

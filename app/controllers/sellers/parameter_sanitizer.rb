@@ -1,4 +1,4 @@
-class Seller::ParameterSanitizer < Devise::ParameterSanitizer
+class Sellers::ParameterSanitizer < Devise::ParameterSanitizer
 
   def initialize(*)
     super

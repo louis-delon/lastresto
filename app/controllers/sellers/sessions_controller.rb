@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Sellers::SessionsController < Devise::SessionsController
   layout false
   # before_action :configure_sign_in_params, only: [:create]
@@ -12,6 +11,7 @@ class Sellers::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
+    # after_sign_in_path_for(seller_path)
   end
 
   # DELETE /resource/sign_out
