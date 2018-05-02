@@ -1,6 +1,5 @@
 class SellersController < ApplicationController
 
-  skip_before_action :authenticate_seller!, only: [:index, :show]
   before_action :set_seller, only: [:show, :edit, :update]
 
   def index
