@@ -1,4 +1,14 @@
-<br>
-<div><%= link_to "Se connecter à mon espace", new_seller_session_path  %></div>
-<br>
-<div><%= link_to "Créer un compte",  new_seller_registration_path %></div>
+<br> Espace restaurateur
+
+<% if seller_signed_in? %>
+
+  <%= link_to('Logout', destroy_seller_session_path, method: :delete) %>
+
+
+<% else %>
+
+  <div><%= link_to "Se connecter à mon espace", new_seller_session_path  %></div>
+  <br>
+  <div><%= link_to "Créer un compte",  new_seller_registration_path %></div>
+
+<% end %>

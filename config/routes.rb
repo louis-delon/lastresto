@@ -8,12 +8,16 @@ Rails.application.routes.draw do
         passwords: 'sellers/passwords'
       }
 
-  devise_for :buyers
+  devise_for :buyers, controllers: {
+        sessions: 'buyers/sessions',
+        registrations: 'buyers/registrations',
+        passwords: 'buyers/passwords'
+      }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'pages/restaurantspace'
 
-  resources :sellers, only: [ :edit, :update, :show] do
+  resources :sellers, only: [ :show] do
     resources :offers
   end
   resources :buyers, only: [ :edit, :update, :show] do

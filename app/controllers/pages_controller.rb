@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
-skip_before_action :authenticate_buyer!, only: :home
-skip_before_action :authenticate_buyer!, only: :restaurantspace
+skip_before_action :authenticate_buyer!, only: [:home, :restaurantspace  ]
+skip_before_action :authenticate_seller!, only: [:restaurantspace, :home ]
 layout false, only: [:restaurantspace]
 
   def home
