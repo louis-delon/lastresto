@@ -2,7 +2,6 @@ class SellersController < ApplicationController
 
   before_action :set_seller, only: [ :edit, :update]
   skip_before_action :authenticate_buyer!
-  layout false
 
   def index
     @sellers = policy_scope(Seller).order(created_at: :desc)

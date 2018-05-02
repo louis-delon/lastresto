@@ -41,7 +41,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-    def after_sign_up_path_for
+    def after_sign_up_path_for(resource)
       seller_path(current_seller)
     end
   # If you have extra params to permit, append them to the sanitizer.
