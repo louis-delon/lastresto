@@ -52,11 +52,11 @@ class OffersController < ApplicationController
       :date,
       :duration,
       :description,
-      :file,
       :quantity,
       :seller_id,
       :category_id,
-      :image
+      :image,
+      :image_cache
     )
   end
 

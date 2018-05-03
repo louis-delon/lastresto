@@ -9,6 +9,8 @@ class Offer < ApplicationRecord
   validates :date, presence:true
   validates :duration, presence:true
   validates :description, presence:true
+  validates :image, presence:true
+  validates :quantity, presence:true
 
   mount_uploader :image, PhotoUploader
 
