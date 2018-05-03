@@ -15,13 +15,13 @@ Rails.application.routes.draw do
       }
 
   namespace :administration do
-    resources :offers
+    resources :offers, only: [:index]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :sellers, only: [ :show] do
-    resources :offers, only: [:index]
+    resources :offers
   end
   resources :buyers, only: [ :show] do
     resources :reservations, only: [:new, :create, :edit, :update, :show]

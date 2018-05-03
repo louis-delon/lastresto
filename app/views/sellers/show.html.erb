@@ -6,6 +6,8 @@
   <br>
   <%= link_to 'Retour', root_path  %><br>
   <%= link_to 'Se déconnecter', destroy_seller_session_path, method: :delete %><br>
-  <%= link_to 'mes offres', administration_offers_path %>
+  <%= link_to 'mes offres', administration_offers_path %><br>
+  <%= link_to 'créer une offre', new_seller_offer_path(@seller) %>
+
 
 </section>

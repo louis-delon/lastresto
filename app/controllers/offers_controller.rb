@@ -1,6 +1,9 @@
 class OffersController < ApplicationController
 
   before_action :set_offer, only: [:show,:edit, :update]
+  before_action :params_offer, only: [:create, :update]
+  skip_before_action :authenticate_buyer!
+  layout "sellers"
 
   def index
     @offers = policy_scope(Offer)
@@ -18,7 +21,7 @@ class OffersController < ApplicationController
     authorize @offer
 
     if @offer.save
-      redirect_to seller_offers_path
+      redirect_to administration_offers_path
     else
       render :new
     end

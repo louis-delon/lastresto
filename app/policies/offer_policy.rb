@@ -6,23 +6,29 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def new?
-
+    create?
   end
 
   def create?
-
+    true
   end
 
   def edit?
-
+    update?
   end
 
   def update?
-
+    current_seller?
   end
 
   def destroy?
+    update?
+  end
 
+  private
+
+  def current_seller?
+    @record.seller == seller
   end
 
 end
