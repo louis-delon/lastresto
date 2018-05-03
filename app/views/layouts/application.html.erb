@@ -21,49 +21,7 @@
 
     <%= yield %>
 
-      <section class="footers text-center" id="footers-19">
-        <div class="container">
-          <div class="row justify-content-center align-items-stretch no-gutters splited-columns">
-            <div class="col-12 col-sm-4 p-30 p-lg-60">
-              <div class="pr-sm-30">
-                <h5 class="mb-20">Contactez-nous</h5>
-                <% if seller_signed_in? %>
-                  <h5 class="mb-20"><%= link_to "Espace restaurateur", seller_path(current_seller) %></h5>
-                <% else %>
-                  <h5 class="mb-20"><%= link_to "Espace restaurateur", new_seller_session_path(current_seller) %></h5>
-                <% end %>
-
-                <p>Mr Smith</p>
-                <p>10 rue des gourmets</p>
-                <p>69009 Lyon</p>
-              </div>
-            </div>
-            <div class="col-12 col-sm-4 p-30 p-lg-60">
-              <h5 class="mb-20">Follow us</h5>
-                <div class="socials"><a href=""><img src="img/socials/facebook.svg"/></a><a href=""><img src="img/socials/twitter.svg"/></a><a href=""><img src="img/socials/instagram.svg"/></a><a href=""><img src="img/socials/behance.svg"/></a><a href=""><img src="img/socials/google.svg"/></a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-4 p-30 p-lg-60">
-              <div class="pl-sm-30">
-                <h5 class="mb-20">Get product updates</h5>
-                <form>
-                  <div class="row no-gutters form-group">
-                    <div class="col-8">
-                      <div>
-                        <input class="form-control form-control-light form-control-small" type="text" placeholder="Input"/>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <button class="btn btn-small w-full">Button</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Sellers::SessionsController < Devise::SessionsController
-  layout false
+  layout "sellers"
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

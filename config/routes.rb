@@ -14,14 +14,14 @@ Rails.application.routes.draw do
         passwords: 'buyers/passwords'
       }
 
-  # create a homepage route for sellers login
-  get 'pages/restaurantspace'
-
+  namespace :administration do
+    resources :offers
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :sellers, only: [ :show] do
-    resources :offers
+    resources :offers, only: [:index]
   end
   resources :buyers, only: [ :show] do
     resources :reservations, only: [:new, :create, :edit, :update, :show]

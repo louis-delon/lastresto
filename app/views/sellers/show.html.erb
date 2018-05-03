@@ -1,5 +1,11 @@
-<h1>Sellers#show</h1>
-<p>Find me in app/views/sellers/show.html.erb</p>
+<section class="container">
 
-<%= link_to 'Retour', root_path  %>
-<%= link_to 'Se déconnecter', destroy_seller_session_path, method: :delete %>
+  <h1>Mon espace personnel</h1>
+  <p></p>
+  <br>
+  <br>
+  <%= link_to 'Retour', root_path  %><br>
+  <%= link_to 'Se déconnecter', destroy_seller_session_path, method: :delete %><br>
+  <%= link_to 'mes offres', administration_offers_path %>
+
+</section>
