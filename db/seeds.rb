@@ -148,7 +148,7 @@ offer1 = Offer.create!(
     price: "25 euros",
     duration: "toute reservation prise avant 21h30",
     description: "tous nos plats sont fait maison",
-    image: "https://www.prik-thai.fr/wp-content/uploads/2013/06/restaurant-plats-thai-intro.jpg",
+    remote_image_url: "https://www.prik-thai.fr/wp-content/uploads/2013/06/restaurant-plats-thai-intro.jpg",
     file: "",
     quantity: "5",
   )
@@ -163,7 +163,7 @@ offer2 = Offer.create!(
     description: "tous nos plats sont fait maison",
     file: "",
     quantity: "5",
-    image: "http://couteaux-et-tirebouchons.com/wp-content/uploads/2015/10/restaurant-Le-Plat-dans-lAssiette-Bordeaux-2-e1444595483358.jpg"
+    remote_image_url: "http://couteaux-et-tirebouchons.com/wp-content/uploads/2015/10/restaurant-Le-Plat-dans-lAssiette-Bordeaux-2-e1444595483358.jpg"
   )
 
 offer3 = Offer.create!(
@@ -176,7 +176,7 @@ offer3 = Offer.create!(
     description: "tous nos plats sont fait maison",
     file: "",
     quantity: "5",
-    image: "http://www.bivouac-serrechevalier.com/system/images/W1siZiIsIjIwMTUvMTIvMDQvMTEvNTgvMjcvODU1L3BsYXRfcmVzdGF1cmFudF9mb25kLmpwZyJdXQ/plat-restaurant-fond.jpg"
+    remote_image_url: "http://couteaux-et-tirebouchons.com/wp-content/uploads/2015/10/restaurant-Le-Plat-dans-lAssiette-Bordeaux-2-e1444595483358.jpg"
 
   )
 
@@ -190,7 +190,7 @@ offer4 = Offer.create!(
     description: "tous nos produits sont frais",
     file: "",
     quantity: "5",
-    image: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
+    remote_image_url: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
   )
 
 offer5 = Offer.create!(
@@ -203,7 +203,7 @@ offer5 = Offer.create!(
     description: "tous nos produits sont frais",
     file: "",
     quantity: "5",
-    image: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
+    remote_image_url: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
   )
 
 
