@@ -2,6 +2,18 @@ Rails.application.routes.draw do
 
   # allow to setup devise controllers to override default devise controllers,
   # for details, see in App/controllers/sellers/
+  namespace :admin do
+    resources :sellers
+    resources :buyers
+    resources :offers
+    resources :reservations
+    resources :categories
+
+    root to: "sellers#index"
+  end
+
+
+
   devise_for :sellers, controllers: {
         sessions: 'sellers/sessions',
         registrations: 'sellers/registrations',
