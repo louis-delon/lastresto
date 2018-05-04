@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :reservations
     resources :categories
 
-    root to: "sellers#index"
+    root to: "offers#index"
   end
 
 

@@ -1,5 +1,5 @@
 module Admin
-  class Administration::BuyersController < Admin::ApplicationController
+  class BuyersController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
