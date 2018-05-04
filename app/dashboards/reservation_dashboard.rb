@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class OfferDashboard < Administrate::BaseDashboard
+class ReservationDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,19 +9,13 @@ class OfferDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     seller: Field::BelongsTo,
-    category: Field::BelongsTo,
-    reservations: Field::HasMany,
+    buyer: Field::BelongsTo,
+    offer: Field::BelongsTo,
     id: Field::Number,
-    title: Field::String,
-    price: Field::String,
     date: Field::DateTime,
-    duration: Field::String,
-    description: Field::String,
-    file: Field::String,
-    quantity: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image: Field::String,
+    comment: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,8 +25,8 @@ class OfferDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :seller,
-    :category,
-    :reservations,
+    :buyer,
+    :offer,
     :id,
   ].freeze
 
@@ -40,19 +34,13 @@ class OfferDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :seller,
-    :category,
-    :reservations,
+    :buyer,
+    :offer,
     :id,
-    :title,
-    :price,
     :date,
-    :duration,
-    :description,
-    :file,
-    :quantity,
     :created_at,
     :updated_at,
-    :image,
+    :comment,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,22 +48,16 @@ class OfferDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :seller,
-    :category,
-    :reservations,
-    :title,
-    :price,
+    :buyer,
+    :offer,
     :date,
-    :duration,
-    :description,
-    :file,
-    :quantity,
-    :image,
+    :comment,
   ].freeze
 
-  # Overwrite this method to customize how offers are displayed
+  # Overwrite this method to customize how reservations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(offer)
-  #   "Offer ##{offer.id}"
+  # def display_resource(reservation)
+  #   "Reservation ##{reservation.id}"
   # end
 end

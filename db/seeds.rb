@@ -62,6 +62,18 @@ martin = Buyer.create!(
 end
 
 puts "creating Sellers"
+
+resto1 = Seller.create!(
+    email: 'louis@holdies.com',
+    name: 'LyonResto',
+    password: 'aaaaaa',
+    address: '50 les chanturieres',
+    zip_code: '69360',
+    city: 'Communay',
+    phone_number: "0611895134",
+    admin: true,
+  )
+
 resto1 = Seller.create!(
     email: 'resto1@lyonresto.com',
     name: 'Brasserie Georges',
@@ -70,6 +82,7 @@ resto1 = Seller.create!(
     zip_code: '69007',
     city: 'Lyon',
     phone_number: "0620225545",
+    admin: false,
   )
 
 resto2 = Seller.create!(
@@ -80,6 +93,7 @@ resto2 = Seller.create!(
     zip_code:'69007',
     city: 'Lyon',
     phone_number: "0620225585" ,
+    admin: false,
   )
 
 resto3 = Seller.create!(
@@ -90,6 +104,7 @@ resto3 = Seller.create!(
     zip_code: '69007',
     city: 'Lyon',
     phone_number: "0620225563",
+    admin: false,
   )
 
 resto4 = Seller.create!(
@@ -100,6 +115,7 @@ resto4 = Seller.create!(
     zip_code: '69007',
     city: 'Lyon',
     phone_number: "0620225500",
+    admin: false,
   )
 
 
@@ -123,8 +139,6 @@ category6 = Category.create!(
     name: 'FastFood'
     )
 
-
-
 puts "creating offers"
 offer1 = Offer.create!(
     title: " Remise sur le menu enfant de -30%",
@@ -134,9 +148,11 @@ offer1 = Offer.create!(
     price: "25 euros",
     duration: "toute reservation prise avant 21h30",
     description: "tous nos plats sont fait maison",
+    image: "https://www.prik-thai.fr/wp-content/uploads/2013/06/restaurant-plats-thai-intro.jpg",
     file: "",
-    quantity: "5"
+    quantity: "5",
   )
+
 offer2 = Offer.create!(
     title: "Offre spéciale: toute la carte à -50%",
     seller_id: resto2.id,
@@ -146,8 +162,8 @@ offer2 = Offer.create!(
     duration: "entre 21h30 et 23h30",
     description: "tous nos plats sont fait maison",
     file: "",
-    quantity: "5"
-
+    quantity: "5",
+    image: "http://couteaux-et-tirebouchons.com/wp-content/uploads/2015/10/restaurant-Le-Plat-dans-lAssiette-Bordeaux-2-e1444595483358.jpg"
   )
 
 offer3 = Offer.create!(
@@ -159,7 +175,9 @@ offer3 = Offer.create!(
     duration: "toute reservation prise avant 20h30",
     description: "tous nos plats sont fait maison",
     file: "",
-    quantity: "5"
+    quantity: "5",
+    image: "http://www.bivouac-serrechevalier.com/system/images/W1siZiIsIjIwMTUvMTIvMDQvMTEvNTgvMjcvODU1L3BsYXRfcmVzdGF1cmFudF9mb25kLmpwZyJdXQ/plat-restaurant-fond.jpg"
+
   )
 
 offer4 = Offer.create!(
@@ -171,7 +189,8 @@ offer4 = Offer.create!(
     duration: "happy hour avant 20h00",
     description: "tous nos produits sont frais",
     file: "",
-    quantity: "5"
+    quantity: "5",
+    image: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
   )
 
 offer5 = Offer.create!(
@@ -183,7 +202,8 @@ offer5 = Offer.create!(
     duration: "-20 sur tout le restaurant",
     description: "tous nos produits sont frais",
     file: "",
-    quantity: "5"
+    quantity: "5",
+    image: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
   )
 
 
