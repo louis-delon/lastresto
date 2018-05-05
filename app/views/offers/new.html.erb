@@ -10,6 +10,7 @@
     <%= f.input :quantity, label: "Nombre d'offres disponibles", as: :string  %>
     <%= f.input :price, as: :string %>
     <%= f.input :duration, as: :string %>
+    <%= f.input :category_id, collection: @categories, label: "Sélectionnez votre catégorie" %>
     <%= f.input :image, label: "Photo de votre promotion", hint: "Une belle photo de votre menu attirera plus de monde" %>
     <%= f.input :image_cache, as: :hidden %>
 

@@ -4,7 +4,10 @@ class Myoffers::OffersController < ApplicationController
   layout "sellers"
 
   def index
-    @offers = policy_scope(Offer)
+    @offers = policy_scope(Offer).where(seller_id: current_seller.id)
   end
 
 end
+
+
+

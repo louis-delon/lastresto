@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 
-  before_action :set_offer, only: [:show,:edit, :update]
+  before_action :set_offer, only: [:show, :edit, :update]
   before_action :params_offer, only: [:create, :update]
   skip_before_action :authenticate_buyer!
   layout "sellers"
@@ -12,16 +12,18 @@ class OffersController < ApplicationController
   def new
     @seller = Seller.find(params[:seller_id])
     @offer = Offer.new
+    @categories = Category.all.sort_by{ |category| category.name}
     authorize @offer
   end
 
   def create
     @seller = Seller.find(params[:seller_id])
     @offer = Offer.new(params_offer)
+    @offer.seller = @seller
+    # @offer.seller = current_seller
     authorize @offer
-
     if @offer.save
-      redirect_to administration_offers_path
+      redirect_to myoffers_offers_path
     else
       render :new
     end
