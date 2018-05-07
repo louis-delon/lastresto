@@ -22,6 +22,4 @@ class SellerPolicy < ApplicationPolicy
   def owner_is_seller?
     @record == user
   end
-
-
 end

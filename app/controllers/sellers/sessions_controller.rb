@@ -11,7 +11,6 @@ class Sellers::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    # after_sign_in_path_for(seller_path)
   end
 
   # DELETE /resource/sign_out

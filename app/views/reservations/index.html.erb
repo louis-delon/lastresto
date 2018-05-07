@@ -1,2 +1,16 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<section class="container">
+
+  <h1>Mes réservations</h1>
+
+  <% @reservations.each do |reservation| %>
+    <%= reservation.offer.seller.name %><br>
+    <%= reservation.offer.title %><br>
+    <%= reservation.offer.price %> euros <br>
+    <%= reservation.date %><br><br>
+  <% end %>
+
+<br>
+
+<%= link_to "retour", buyer_path(@buyer) %>
+
+</section>
