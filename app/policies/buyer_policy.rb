@@ -2,11 +2,11 @@ class BuyerPolicy < ApplicationPolicy
 
   # to be manage when an admin will be created
 
-  # class Scope < Scope
-  #   def resolve
-  #     scope
-  #   end
-  # end
+  class Scope < Scope
+    def resolve
+      scope
+    end
+  end
 
   def show?
     owner_is_buyer?

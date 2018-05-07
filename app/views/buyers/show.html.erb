@@ -1,3 +1,11 @@
-<h1>Sellers#show</h1>
-<p>Find me in app/views/sellers/show.html.erb</p>
+<section class="container">
 
+  <h1>Mon Profil</h1>
+  <br>
+  <br>
+  <%= link_to 'Mes reservations', buyer_reservations_path(@buyer) %><br>
+  <%= link_to 'Mes infos', edit_buyer_registration_path(@buyer) %><br>
+  <%= link_to 'Retour', root_path  %>
+  <br>
+
+</section>

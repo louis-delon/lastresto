@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
   before_action :authenticate_seller!
-  # before_action :devise_parameter_sanitizer, if: :devise_controller?
 
   include Pundit
 
@@ -34,6 +33,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def devise_parameter_sanitizer
+    # allow to set up strong parameter for buyers and sellers according to each situation
     if resource_class == Seller
       Sellers::ParameterSanitizer.new(Seller, :seller, params)
     elsif resource_class == Buyer
