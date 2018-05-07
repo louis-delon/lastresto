@@ -23,7 +23,7 @@ class BuyerPolicy < ApplicationPolicy
   private
 
   def owner_is_buyer?
-    @record == user
+    @record == buyer
   end
 
 end

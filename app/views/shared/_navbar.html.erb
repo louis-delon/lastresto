@@ -18,7 +18,7 @@
 
           <%= image_tag buyer_avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", crop: :thumb, gravity: :face, width: 300, height: 300 %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Mon profil</a></li>
+          <li><%= link_to "Mon profil", buyer_path(@buyer) %></li>
           <li><a href="#">Mes reservations</a></li>
           <li>
             <%= link_to destroy_buyer_session_path, method: :delete do %>

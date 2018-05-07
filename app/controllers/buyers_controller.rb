@@ -1,6 +1,8 @@
 class BuyersController < ApplicationController
 
   before_action :set_buyer, only: [:show, :edit, :update]
+  skip_before_action :authenticate_seller!
+
 
   # to be manage when an admin will be created
   def index

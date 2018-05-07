@@ -5,6 +5,7 @@ skip_before_action :authenticate_seller!, only: [:restaurantspace, :home ]
 
   def home
     @offers = policy_scope(Offer)
+    @buyer = current_buyer if buyer_signed_in?
   end
 
 end
