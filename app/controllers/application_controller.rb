@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_buyer!
   before_action :authenticate_seller!
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :devise_parameter_sanitizer, if: :devise_controller?
 
   include Pundit
 

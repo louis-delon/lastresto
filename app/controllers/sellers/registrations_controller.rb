@@ -23,6 +23,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
+
   end
 
   # DELETE /resource
@@ -41,18 +42,23 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-    def after_sign_up_path_for(resource)
-      seller_path(current_seller)
-    end
+  def after_sign_up_path_for(resource)
+    seller_path(resource)
+  end
+
+  def after_update_path_for(resource)
+    seller_path(resource)
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
-  # If you have extra params to permit, append them to the sanitizer.
+  # # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
