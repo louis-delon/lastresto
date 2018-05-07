@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def devise_parameter_sanitizer
+    # allow to set up strong parameter for buyers and sellers according to each situation
     if resource_class == Seller
       Sellers::ParameterSanitizer.new(Seller, :seller, params)
     elsif resource_class == Buyer
