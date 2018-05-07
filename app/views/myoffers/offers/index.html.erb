@@ -9,15 +9,16 @@
           <h3><%= offer.seller.name %></h3>
           <p><%= offer.title %></p>
           <p><%= offer.date %></p>
-          <%= link_to "mettre à jour", edit_seller_offer_path([current_seller, offer]) %>
-          <%= link_to "supprimer", seller_offer_path([current_seller, offer]), method: :delete, data: { confirm: "Souhaitez vous supprimer votre offre?" }, class: "btn btn--secondary" do %>
-          Supprimer<%= icon('fas', 'trash') %>
+          <%= link_to "Editer", edit_seller_offer_path(offer.seller, offer) %>
+
+          <%= link_to seller_offer_path(offer.seller, offer), method: :delete, data: { confirm: "Souhaitez vous supprimer votre offre?" }, class: "btn btn--secondary" do %>
+            Supprimer<%= icon('fas', 'trash') %>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
+  <br>
+  <%= link_to "retour", seller_path(current_seller) %>
 </section>
 
-<br>
-<%= link_to "retour", seller_path(current_seller) %>

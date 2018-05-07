@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 
-  before_action :set_offer, only: [:show, :edit, :update]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy]
   before_action :params_offer, only: [:create, :update]
   skip_before_action :authenticate_buyer!
   layout "sellers"

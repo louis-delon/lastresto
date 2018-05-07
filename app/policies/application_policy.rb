@@ -4,7 +4,6 @@ class ApplicationPolicy
 
   def initialize(context, record)
     raise Pundit::NotAuthorizedError, "must be logged in" unless context
-    raise
     @seller = context.seller
     @buyer = context.buyer
     @record = record
