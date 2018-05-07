@@ -3,8 +3,8 @@ class BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update]
 
   # to be manage when an admin will be created
-  # def index
-  # end
+  def index
+  end
 
   def show
     @buyer_avatar = @buyer.avatar || "default-avatar.png"

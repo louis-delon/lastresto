@@ -1,0 +1,24 @@
+<section class="container">
+  <h1>Mes offres</h1>
+  <br>
+  <% @offers.each do |offer|  %>
+    <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
+      <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
+        <div class="align-self-end">
+          <%= image_tag(offer.image, size: "252x264") %>
+          <h3><%= offer.seller.name %></h3>
+          <p><%= offer.title %></p>
+          <p><%= offer.date %></p>
+          <%= link_to "Editer", edit_seller_offer_path(offer.seller, offer) %>
+
+          <%= link_to seller_offer_path(offer.seller, offer), method: :delete, data: { confirm: "Souhaitez vous supprimer votre offre?" }, class: "btn btn--secondary" do %>
+            Supprimer<%= icon('fas', 'trash') %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to "retour", seller_path(current_seller) %>
+</section>
+

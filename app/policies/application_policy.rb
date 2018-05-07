@@ -9,7 +9,6 @@ class ApplicationPolicy
     @record = record
   end
 
-
   def index?
     false
   end
@@ -39,16 +38,15 @@ class ApplicationPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    Pundit.policy_scope!(context, record.class)
   end
 
 
   class Scope
-    attr_reader :seller, :buyer, :scope
+    attr_reader :context, :scope
 
     def initialize(context, scope)
-      @seller = context.seller
-      @buyer = context.buyer
+      @context = context
       @scope = scope
     end
 
