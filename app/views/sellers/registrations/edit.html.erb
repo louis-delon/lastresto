@@ -1,27 +1,36 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="container">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <h2>Editer mon profil</h2>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :name, label: "Nom du Restaurant" ,required: true %>
+      <%= f.input :address, label: "Adresse du Restaurant", required: true %>
+      <%= f.input :zip_code, label: "Code postal" required: true %>
+      <%= f.input :city, label: "Ville", required: true %>
+      <%= f.input :phone_number, label: "Numéro de téléphone", required: true %>
+      <%= f.input :current_password, label: "Mot de passe", hint: "Entrez votre mot de passe", required: true %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+    <br>
+    <h3>Changer de mot de passe</h3>
+    <br>
+      <%= f.input :password, label: "Nouveau mot de passe", autocomplete: "off", hint: "Ne rien remplir si vous ne souhaitez pas changer votre mot de passe", required: false %>
+      <%= f.input :password_confirmation, label: "Confirmez votre nouveau mot de passe", required: false %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Mettre à jour" %>
+    </div>
+  <% end %>
 
-<h3>Cancel my account</h3>
+  <h3>Supprimer mon compte</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <p>Unhappy? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sûr de vouloir supprimer votre compte? Cette action  est irréversible" }, method: :delete %></p>
+  <%= link_to "Retour", :back %>
+</section>
