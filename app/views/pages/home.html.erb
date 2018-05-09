@@ -1,7 +1,7 @@
 
    <section class="ecommerces p-60 p-lg-100 text-center" id="ecommerces-1">
         <div class="container">
-          <h1>Offres resto Lastminute <br> d'aujourd'hui</h1><p>Attetnion le nombre de place est limité en nombre et dans le temps<br><h3>Reste <span cl:ass="label  label-warning">42 minutes</span></h3><br></p><br><hr><br>
+          <h1>Offres resto Lastminute <br> d'aujourd'hui</h1><p>Attention le nombre de place est limité en nombre et dans le temps<br><h3>Reste <span cl:ass="label  label-warning">42 minutes</span></h3><br></p><br><hr><br>
           <ul class="nav-tabs mb-40" id="ecommerces-tabs">
             <li class="active"><a href="#ecommerce-1-tab-0" data-toggle="tab">Aujourd'hui</a></li>
             <li><a href="#ecommerce-1-tab-1" data-toggle="tab">Hier</a></li>
@@ -15,7 +15,7 @@
                   <div class="card h-400 d-flex justify-content-center">
                     <div class="align-self-center ph-30">
                       <h1 class="mb-20">Donne ton 06...</h1>
-                      <h4 class="mb-50">Recevez avant tous le mondeles offres que vous aimez le plus</h4>
+                      <h4 class="mb-50">Recevez avant tout le monde les offres que vous aimez le plus</h4>
                         <Réserver class="btn btn-small">Je personnalise mes offres</Réserver>
                     </div>
                   </div>
@@ -25,7 +25,7 @@
                   <div class="col-12 col-sm-6 col-lg-3 mb-15 mb-sm-30">
                     <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
                       <div class="align-self-end">
-                        <%= image_tag(offer.image, size: "253x264") %>
+                        <%= cl_image_tag(offer.image, width: 253,height: 264, crop: :fill) %>
                         <h3><%= offer.seller.name %></h3>
                         <p><%= offer.title %></p>
                         <p><%= offer.date %></p>

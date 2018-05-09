@@ -1,15 +1,14 @@
 <section class="container">
 
   <h1>Mon espace personnel</h1>
-  <p></p>
   <br>
   <br>
-  <%= link_to 'Retour', root_path  %><br>
-  <%= link_to 'Se déconnecter', destroy_seller_session_path, method: :delete %><br>
 
   <%= link_to 'Mes offres', myoffers_offers_path %><br>
   <%= link_to 'Créer une offre', new_seller_offer_path(@seller) %><br>
-  <%= link_to 'Mon compte', edit_seller_registration_path(@seller) %>
+  <%= link_to 'Mon compte', edit_seller_registration_path(@seller) %><br>
+  <%= link_to 'Retour', root_path %><br>
+  <%= link_to 'Se déconnecter', destroy_seller_session_path, method: :delete %><br>
 
 
 </section>
