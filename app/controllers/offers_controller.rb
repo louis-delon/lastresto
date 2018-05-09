@@ -2,8 +2,11 @@ class OffersController < ApplicationController
 
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   before_action :params_offer, only: [:create, :update]
-  skip_before_action :authenticate_buyer!
-  layout "sellers"
+  # buyer can see an offer in order to make a reservation
+  skip_before_action :authenticate_buyer!, except: :show
+  # seller must be "signed in" in order to create,update, destroy an offer
+  skip_before_action :authenticate_seller!, only: :show
+  layout "sellers", except: :show
 
   def index
     @offers = policy_scope(Offer)
@@ -37,7 +40,8 @@ class OffersController < ApplicationController
   end
 
   def show
-
+    # @offer = Offer.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def destroy

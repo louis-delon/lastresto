@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'pages#home'
+
   namespace :admin do
     resources :sellers
     resources :buyers
@@ -11,12 +13,6 @@ Rails.application.routes.draw do
     root to: "sellers#index"
   end
 
-  # alllow to display its own offers to a seller
-  namespace :myoffers do
-    resources :offers, only: [:index]
-  end
-
-  root to: 'pages#home'
 
   # allow to setup devise controllers to override default devise controllers,
   # for details, see in App/controllers/sellers/
@@ -32,13 +28,28 @@ Rails.application.routes.draw do
         passwords: 'buyers/passwords'
       }
 
-  resources :sellers, only: [ :show] do
-    resources :offers
-  end
+  resources :buyers, only: :show
 
-  resources :buyers, only: [ :show] do
+  # show an offer can be only requested by a buyer from homepage
+  resources :offers, only: :show do
     resources :reservations
   end
+
+  # create/update/destroy an offer can be settled only by a seller
+  resources :sellers, only: :show do
+    resources :offers, except: :show
+  end
+
+
+  # alllow to display its own offers to a seller
+  namespace :myoffers do
+    resources :offers, only: [:index]
+  end
+
+
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

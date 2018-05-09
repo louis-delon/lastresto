@@ -4,6 +4,6 @@ class Reservation < ApplicationRecord
   belongs_to :buyer
   belongs_to :offer
 
-  validates :date, presence:true
+  validates :time, presence:true
 
 end

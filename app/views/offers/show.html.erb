@@ -1,2 +1,14 @@
-<h1>Offers#show</h1>
-<p>Find me in app/views/offers/show.html.erb</p>
+<section class="container">
+
+<h1>Renseignez votre réservation</h1>
+
+  <%=  simple_form_for [@offer, @reservation] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :number_of_persons, collection: 1..5, required: true  %>
+    <%= f.input :time, as: :time, required: true %>
+    <%= f.input :comment, required: false %>
+    <%= f.button :submit, "Valider" %>
+  <% end %>
+
+</section>
+
