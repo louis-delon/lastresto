@@ -6,6 +6,7 @@
     <%= f.error_notification %>
     <%= f.input :number_of_persons, collection: 1..5, required: true  %>
     <%= f.input :time, as: :time, required: true %>
+    <%= f.input :comment, required: false %>
     <%= f.button :submit, "Valider" %>
   <% end %>
 

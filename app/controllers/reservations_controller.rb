@@ -4,21 +4,22 @@ class ReservationsController < ApplicationController
   before_action :set_buyer, only: [ :edit, :update, :destroy]
   before_action :set_reservation, only: [:edit, :update, :destroy]
 
-
   def index
     @buyer = current_buyer
     @reservations = policy_scope(Reservation).where(buyer_id: @buyer.id)
   end
 
-
   def create
     @offer = Offer.find(params[:offer_id])
     @buyer = current_buyer
     @seller = @offer.seller
-    @reservation = Reservation.new(buyer_id: @buyer, offer_id: @offer, seller_id: @seller )
+    @reservation = Reservation.new(params_reservation)
+    @reservation.buyer_id = @buyer.id
+    @reservation.offer_id = @offer.id
+    @reservation.seller_id = @seller.id
     authorize @reservation
     if @reservation.save
-      redirect_to offer_path(@offer)
+      redirect_to root_path
     else
       render :new
     end
@@ -32,7 +33,7 @@ class ReservationsController < ApplicationController
     @offer = @reservation.offer
     @reservation.update
     authorize @reservation
-    redirect_to offer_path(@offer)
+    redirect_to root_path
   end
 
   def destroy
@@ -53,7 +54,8 @@ class ReservationsController < ApplicationController
       :number_of_persons,
       :buyer_id,
       :seller_id,
-      :offer_id
+      :offer_id,
+      :comment
             )
   end
 
