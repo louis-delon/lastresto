@@ -13,6 +13,20 @@ class Buyers::ParameterSanitizer < Devise::ParameterSanitizer
                     :avatar,
                     :phone,                  ]
           )
+
+    permit(
+            :account_update,
+            keys: [
+                    :email,
+                    :pseudo,
+                    :first_name,
+                    :last_name,
+                    :avatar,
+                    :phone,
+                  ]
+          )
+
+
   end
 end
 
