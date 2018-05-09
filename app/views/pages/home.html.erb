@@ -35,7 +35,7 @@
                           <h3 class="mb-10"><%= offer.title %></h3>
                           <p class="mb-20"><%= offer.description %></p>
                           <p class="mb-60"><%= offer.price %> euros</p>
-                          <%= link_to "Réserver", new_buyer_reservation_path(current_buyer), {class: "btn btn-small"} %>
+                          <%= link_to "Réserver", offer_path(offer), {class: "btn btn-small"} %>
                         </div>
                       </div>
                     </div>

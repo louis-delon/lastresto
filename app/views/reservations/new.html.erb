@@ -2,7 +2,7 @@
 
 <h1>Complétez votre réservation</h1>
 
-  <%=  simple_form_for [@buyer, @reservation] do |f| %>
+  <%=  simple_form_for [@seller, @offer, @reservation] do |f| %>
     <%= f.error_notification %>
     <%= f.input :number_of_persons, collection: 1..5, required: true  %>
     <%= f.input :time, as: :time, required: true %>

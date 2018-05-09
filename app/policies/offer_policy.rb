@@ -17,6 +17,10 @@ class OfferPolicy < ApplicationPolicy
     update?
   end
 
+  def show?
+    true
+  end
+
   def update?
     current_seller?
   end
