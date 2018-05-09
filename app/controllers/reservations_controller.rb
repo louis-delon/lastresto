@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 
+  # Reservations are only for buyers
   skip_before_action :authenticate_seller!
   before_action :set_buyer, only: [ :edit, :update, :destroy]
   before_action :set_reservation, only: [:edit, :update, :destroy]
@@ -7,6 +8,7 @@ class ReservationsController < ApplicationController
   def index
     @buyer = current_buyer
     @reservations = policy_scope(Reservation).where(buyer_id: @buyer.id)
+    @offers = @reservations.map { |reservation| reservation.offer}
   end
 
   def create

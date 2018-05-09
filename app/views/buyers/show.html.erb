@@ -3,7 +3,7 @@
   <h1>Mon Profil</h1>
   <br>
   <br>
-  TO DO => Link to mes reservations <br>
+  <%= link_to 'Mes reservations', offer_reservations_path(@buyer) %><br>
   <%= link_to 'Mes infos', edit_buyer_registration_path(@buyer) %><br>
   <%= link_to 'Retour', root_path  %><br>
 
