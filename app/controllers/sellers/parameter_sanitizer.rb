@@ -29,6 +29,5 @@ class Sellers::ParameterSanitizer < Devise::ParameterSanitizer
                   ]
           )
   end
-
 end
 
