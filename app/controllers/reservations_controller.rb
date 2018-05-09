@@ -1,23 +1,24 @@
 class ReservationsController < ApplicationController
 
   skip_before_action :authenticate_seller!
-  before_action :set_buyer, only: [:create, :edit, :update, :destroy]
+  before_action :set_buyer, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_reservation, only: [:edit, :update, :destroy]
 
   def index
     @buyer = current_buyer
     @reservations = policy_scope(Reservation).where(buyer_id: @buyer.id)
-    # @reservations = Reservation.all.where(buyer_id: @buyer.id)
   end
 
   def new
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
-    @reservation = reservation.new
+
+    @reservation = Reservation.new(buyer_id: @buyer )
     authorize @reservation
-    if reservation.save?
+    if @reservation.save
       redirect_to buyer_reservations_path(@buyer)
     else
       render :new
@@ -25,15 +26,19 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    authorize @reservation
+
   end
 
   def update
     @reservation.update
+    authorize @reservation
     redirect_to buyer_reservations_path(@buyer)
   end
 
   def destroy
     @reservation.destroy
+    authorize @reservation
   end
 
   private

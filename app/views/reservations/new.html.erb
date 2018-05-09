@@ -1,2 +1,12 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<section class="container">
+
+<h1>Complétez votre réservation</h1>
+
+  <%=  simple_form_for [@buyer, @reservation] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :number_of_persons, collection: 1..5, required: true  %>
+    <%= f.input :time, as: :time, required: true %>
+    <%= f.button :submit, "Valider" %>
+  <% end %>
+
+</section>

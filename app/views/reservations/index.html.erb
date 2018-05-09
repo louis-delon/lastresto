@@ -9,7 +9,8 @@
           <%= image_tag(reservation.offer.image, size: "253x264") %>
           <h3><%= reservation.offer.seller.name %></h3>
           <p><%= reservation.offer.title %></p>
-          <p><%= reservation.offer.price %> euros (<%= reservation.date %>)</p>
+          <p><%= reservation.offer.price %> euros (<%= reservation.offer.date %>)</p>
+          <p>Vous êtes attendus à <%= reservation.time %> heures</p>
         </div>
         <div class="with-overlay__content d-flex justify-content-center">
           <div class="align-self-center ph-30">
