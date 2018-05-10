@@ -17,7 +17,6 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(params_reservation)
     @reservation.buyer_id = @buyer.id
     @reservation.offer_id = @offer.id
-    @reservation.seller_id = @seller.id
     authorize @reservation
     if @reservation.save
       redirect_to root_path

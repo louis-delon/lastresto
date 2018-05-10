@@ -2,7 +2,6 @@ class Seller < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :offers, dependent: :destroy
-  has_many :reservations, dependent: :destroy
 
   validates :name, presence:true
   validates :address, presence:true
