@@ -26,7 +26,7 @@ class OffersController < ApplicationController
     # @offer.seller = current_seller
     authorize @offer
     if @offer.save
-      redirect_to myoffers_offers_path
+      redirect_to myadmins_offers_path
     else
       render :new
     end
@@ -40,13 +40,13 @@ class OffersController < ApplicationController
   end
 
   def show
-    # @offer = Offer.find(params[:id])
+    @buyer = current_buyer
     @reservation = Reservation.new
   end
 
   def destroy
     @offer.destroy
-    redirect_to myoffers_offers_path
+    redirect_to myadmins_offers_path
   end
 
   private

@@ -210,7 +210,9 @@ offer5 = Offer.create!(
 puts "creating reservations"
 reservation1 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date: Date.today,
+    time: Time.now,
+    comment: "nous serons la avec un enfant",
+    number_of_persons: 4,
     buyer_id: louis.id,
     seller_id: resto1.id,
     offer_id: offer2.id
@@ -218,7 +220,9 @@ reservation1 = Reservation.create!(
 
 reservation2 = Reservation.create!(
     comment: 'nous sommes 4',
-    date: Date.today,
+    time: Time.now,
+    comment: "nous serons la avec un enfant",
+    number_of_persons: 4,
     buyer_id: olivier.id,
     seller_id: resto2.id,
     offer_id: offer1.id
@@ -226,7 +230,9 @@ reservation2 = Reservation.create!(
 
 reservation3 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date: Date.today,
+    time: Time.now,
+    comment: "nous serons la avec un enfant",
+    number_of_persons: 4,
     buyer_id: louis.id,
     seller_id: resto3.id,
     offer_id: offer3.id
@@ -234,7 +240,9 @@ reservation3 = Reservation.create!(
 
 reservation4 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
-    date: Date.today,
+    time: Time.now,
+    comment: "nous serons la avec un enfant",
+    number_of_persons: 4,
     buyer_id: sophie.id,
     seller_id: resto4.id,
     offer_id: offer4.id
@@ -243,7 +251,9 @@ reservation4 = Reservation.create!(
   25.times do
   Reservation.create!(
     comment: Faker::Dune.saying,
-    date: Date.today,
+    time: Time.now,
+    comment: "nous serons la avec un enfant",
+    number_of_persons: 4,
     buyer_id: ((Buyer.first.id)..(Buyer.last.id)).to_a.sample,
     seller_id: ((Seller.first.id)..(Seller.last.id)).to_a.sample,
     offer_id:((Offer.first.id)..(Offer.last.id)).to_a.sample,

@@ -3,13 +3,10 @@ class BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update]
   skip_before_action :authenticate_seller!
 
-
-  # to be manage when an admin will be created
-  def index
-  end
-
   def show
     @buyer_avatar = @buyer.avatar || "default-avatar.png"
+    # @reservations = Reservation.where(buyer_id: @buyer.id)
+    # @offers = @reservations.map { |reservation| reservation.offer}
   end
 
   def edit

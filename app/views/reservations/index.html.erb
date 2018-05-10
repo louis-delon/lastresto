@@ -3,23 +3,19 @@
   <h1>Mes réservations</h1> <br><br><br>
 
   <% @reservations.each do |reservation| %>
+
     <div class=" col-xs-12 col-sm-6 col-md-4">
       <div class="panel h-400 with-overlay p-30 d-flex justify-content-center">
+
         <div class="align-self-end">
           <%= image_tag(reservation.offer.image, size: "253x264") %>
           <h3><%= reservation.offer.seller.name %></h3>
           <p><%= reservation.offer.title %></p>
           <p><%= reservation.offer.price %> euros (<%= reservation.offer.date %>)</p>
           <p>Vous êtes attendus à <%= reservation.time %> heures</p>
+          <%= link_to "Annuler", offer_reservation_path([reservation.offer, reservation]), method: :delete, :class => "btn btn-small", data: { confirm: "Etes vous sûr de vouloir annuler votre réservation?" } %>
         </div>
-        <div class="with-overlay__content d-flex justify-content-center">
-          <div class="align-self-center ph-30">
-            <h3 class="mb-10"><%= reservation.offer.title %></h3>
-            <p class="mb-20"><%= reservation.offer.description %></p>
-            <p class="mb-60"><%= reservation.offer.price %> euros</p>
-              <Button class="btn btn-small">Annuler</Button>
-          </div>
-        </div>
+
       </div>
     </div>
   <% end %>
