@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509135604) do
+ActiveRecord::Schema.define(version: 20180510202340) do
 
   create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20180509135604) do
 
   create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "offer_id"
-    t.bigint "seller_id"
     t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180509135604) do
     t.time "time"
     t.index ["buyer_id"], name: "index_reservations_on_buyer_id"
     t.index ["offer_id"], name: "index_reservations_on_offer_id"
-    t.index ["seller_id"], name: "index_reservations_on_seller_id"
   end
 
   create_table "sellers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -110,5 +108,4 @@ ActiveRecord::Schema.define(version: 20180509135604) do
   add_foreign_key "preferences", "categories"
   add_foreign_key "reservations", "buyers"
   add_foreign_key "reservations", "offers"
-  add_foreign_key "reservations", "sellers"
 end

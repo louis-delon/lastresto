@@ -15,9 +15,7 @@
     <%= f.input :image_cache, as: :hidden %>
 
     <%= link_to "Annuler", seller_path(@seller) %>
-    <%= button_tag class: "btn btn--primary" do %>
-      <p>Créer</p>
-    <% end %>
+    <%= f.submit "Créer", class: "btn btn--primary" %>
   <% end %>
 
 </div>

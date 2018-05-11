@@ -32,16 +32,16 @@ Rails.application.routes.draw do
     resources :offers, except: [:show, :index]
   end
 
-  # allow to acces to all offers
   # show an offer can be only applied by a buyer from homepage
   # by this path, buyer can then make a reservation
   resources :offers, only: [:index, :show] do
-    resources :reservations, only: [:create, :destroy]
+    resources :reservations, only: :create
   end
 
   resources :buyers, only: :show do
-    resources :reservations, only: [:index, :edit, :update]
+    resources :reservations, only: [:index, :destroy, :edit, :update]
   end
+
   # alllow to display its own offers to a seller
   namespace :myadmins do
     resources :offers, only: :index
