@@ -40,12 +40,14 @@ Rails.application.routes.draw do
 
   resources :buyers, only: :show do
     resources :reservations, only: [:index, :destroy, :edit, :update]
+    resources :preferences
   end
 
   # alllow to display its own offers to a seller
   namespace :myadmins do
-    resources :offers, only: :index
-    resources :reservations, only: :index
+    resources :offers, only: :index do
+      resources :reservations, only: :index
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

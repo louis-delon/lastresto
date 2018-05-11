@@ -74,17 +74,6 @@ resto1 = Seller.create!(
     admin: true,
   )
 
-resto1 = Seller.create!(
-    email: 'resto1@lyonresto.com',
-    name: 'Brasserie Georges',
-    password: 'aaaaaa',
-    address: '30 Cours de Verdun Perrache',
-    zip_code: '69007',
-    city: 'Lyon',
-    phone_number: "0620225545",
-    admin: false,
-  )
-
 resto2 = Seller.create!(
     email: 'resto2@lyonresto.com',
     name: 'Tetedoie',
@@ -115,6 +104,17 @@ resto4 = Seller.create!(
     zip_code: '69007',
     city: 'Lyon',
     phone_number: "0620225500",
+    admin: false,
+  )
+
+resto5 = Seller.create!(
+    email: 'resto5@lyonresto.com',
+    name: 'La petite montagne',
+    password: 'aaaaaa',
+    address: '15 Cours Gambetta',
+    zip_code: '69007',
+    city: 'Lyon',
+    phone_number: "0620225545",
     admin: false,
   )
 
@@ -206,6 +206,19 @@ offer5 = Offer.create!(
     remote_image_url: "http://restauration.meosix.fr/leplatdanslassiette/wp-content/uploads/sites/77/2015/02/PDA-HD-7.jpg"
   )
 
+  offer6 = Offer.create!(
+      title: " 1 menu acheté = 1 menu offert",
+      seller_id: resto1.id,
+      category_id: category2.id,
+      date: Faker::Date.forward(2),
+      price: "20",
+      duration: "toute reservation prise avant 21h30",
+      description: "tous nos plats sont fait maison",
+      remote_image_url: "https://www.prik-thai.fr/wp-content/uploads/2013/06/restaurant-plats-thai-intro.jpg",
+      file: "",
+      quantity: "10",
+    )
+
 
 puts "creating reservations"
 reservation1 = Reservation.create!(
@@ -242,6 +255,24 @@ reservation4 = Reservation.create!(
     number_of_persons: 4,
     buyer_id: sophie.id,
     offer_id: offer4.id
+    )
+
+  reservation5 = Reservation.create!(
+    comment: ' nous arriverons vers 21h',
+    time: Time.now,
+    comment: "nous serons la avec 4 enfants",
+    number_of_persons: 5,
+    buyer_id: sophie.id,
+    offer_id: offer6.id
+    )
+
+  reservation6 = Reservation.create!(
+    comment: ' nous arriverons vers 21h',
+    time: Time.now,
+    comment: "nous serons vers 20h",
+    number_of_persons: 4,
+    buyer_id: olivier.id,
+    offer_id: offer6.id
     )
 
 #   25.times do

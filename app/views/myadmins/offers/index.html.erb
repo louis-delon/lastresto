@@ -10,6 +10,8 @@
             <h3><%= offer.seller.name %></h3>
             <p><%= offer.title %></p>
             <p><%= offer.date %></p>
+            <p> <%= "Vous avez #{offer.reservations.size} reservations pour cette offre" %></p>
+            <%= link_to "voir les reservations", myadmins_offer_reservations_path(offer) %>
             <%= link_to "Editer", edit_seller_offer_path(offer.seller, offer) %>
 
             <%= link_to seller_offer_path(offer.seller, offer), method: :delete, data: { confirm: "Souhaitez vous supprimer votre offre?" }, class: "btn btn--secondary" do %>

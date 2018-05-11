@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation.offer_id = @offer.id
     authorize @reservation
     if @reservation.save
-      redirect_to root_path
+      redirect_to root_path, notice: "votre reservation a été validée"
     else
       render :new
     end

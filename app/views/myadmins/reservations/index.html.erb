@@ -1,12 +1,22 @@
 <section class="container">
-  <h1>Mes reservations</h1>
-  <br>
-  <div>
 
-  </div>
-  <br>
-  <br>
+  <h1>Mes reservations pour l'offre <%= @offer.first.title %> du <%= @offer.first.date %> </h1><br>
+
+  <% @reservations.each do |reservation| %>
+
+    <h2>Client: <%= "#{reservation.buyer.first_name} #{reservation.buyer.last_name}"  %></h2>
+    <p><%= "Nombre de couverts: #{reservation.number_of_persons} "%></p>
+    <p><%= "Heure d'arrivée #{reservation.time} "%></p>
+    <p>Numéro de téléphone: <%= reservation.buyer.phone %></p>
+
+    <p><%= reservation.comment %></p>
+  <% end %>
+  <div>
+  </div><br><br>
+
   <div>
     <%= link_to "retour", seller_path(current_seller) %>
   </div>
+
 </section>
+

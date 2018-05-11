@@ -6,7 +6,7 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    create?
   end
 
   def create?
@@ -14,15 +14,21 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    update?
   end
 
   def update?
-    true
+    current_buyer_is_owner?
   end
 
   def destroy?
     true
+  end
+
+  private
+
+  def current_buyer_is_owner?
+    @buyer == @record.buyer
   end
 
 end
