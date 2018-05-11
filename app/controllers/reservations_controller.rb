@@ -13,7 +13,6 @@ class ReservationsController < ApplicationController
   def create
     @offer = Offer.find(params[:offer_id])
     @buyer = current_buyer
-    @seller = @offer.seller
     @reservation = Reservation.new(params_reservation)
     @reservation.buyer_id = @buyer.id
     @reservation.offer_id = @offer.id
@@ -30,15 +29,14 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @offer = @reservation.offer
-    @reservation.update
+    @reservation.update(params_reservation)
     authorize @reservation
     redirect_to root_path
   end
 
   def destroy
     @offer = @reservation.offer
-    @reservation.offer = @offer
+    @reservation.offer_id = @offer.id
     @reservation.destroy
     authorize @reservation
     redirect_to offer_reservations_path(@offer), notice: "Votre réservation a été annulée"
@@ -56,7 +54,6 @@ class ReservationsController < ApplicationController
       :time,
       :number_of_persons,
       :buyer_id,
-      :seller_id,
       :offer_id,
       :comment
             )

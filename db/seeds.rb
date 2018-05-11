@@ -211,7 +211,7 @@ puts "creating reservations"
 reservation1 = Reservation.create!(
     comment: 'bonjour nous arriverons vers 20h',
     time: Time.now,
-    comment: "nous serons la avec un enfant",
+    comment: "nous serons la ",
     number_of_persons: 4,
     buyer_id: louis.id,
     offer_id: offer2.id
@@ -220,40 +220,40 @@ reservation1 = Reservation.create!(
 reservation2 = Reservation.create!(
     comment: 'nous sommes 4',
     time: Time.now,
-    comment: "nous serons la avec un enfant",
+    comment: "nous serons la avec 2 enfants",
     number_of_persons: 4,
     buyer_id: olivier.id,
     offer_id: offer1.id
     )
 
 reservation3 = Reservation.create!(
-    comment: 'bonjour nous arriverons vers 20h',
+    comment: 'bonjour nous arriverons vers 18h',
     time: Time.now,
-    comment: "nous serons la avec un enfant",
+    comment: "nous serons la avec 3 enfant",
     number_of_persons: 4,
     buyer_id: louis.id,
     offer_id: offer3.id
     )
 
 reservation4 = Reservation.create!(
-    comment: 'bonjour nous arriverons vers 20h',
+    comment: ' nous arriverons vers 21h',
     time: Time.now,
-    comment: "nous serons la avec un enfant",
+    comment: "nous serons la avec 4 enfant",
     number_of_persons: 4,
     buyer_id: sophie.id,
     offer_id: offer4.id
     )
-#
-  25.times do
-  Reservation.create!(
-    comment: Faker::Dune.saying,
-    time: Time.now,
-    comment: "nous serons la avec un enfant",
-    number_of_persons: 4,
-    buyer_id: ((Buyer.first.id)..(Buyer.last.id)).to_a.sample,
-    offer_id:((Offer.first.id)..(Offer.last.id)).to_a.sample
-  )
-end
+
+#   25.times do
+#   Reservation.create!(
+#     comment: Faker::Dune.saying,
+#     time: Time.now,
+#     comment: "nous serons la avec un enfant",
+#     number_of_persons: 4,
+#     buyer_id: ((Buyer.first.id)..(Buyer.last.id)).to_a.sample,
+#     offer_id:((Offer.first.id)..(Offer.last.id)).to_a.sample
+#   )
+# end
 
 puts "creating preferences"
 preference1 = Preference.create!(

@@ -1,2 +1,22 @@
-<h1>Offers#edit</h1>
-<p>Find me in app/views/offers/edit.html.erb</p>
+<section class="container">
+
+  <h1>Modifier votre offre</h1>
+
+  <%= simple_form_for [@seller, @offer] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :title, label: "Titre de votre promotion", placeholder: "Menu gastro à -30% jusqu'à 21h00 " %>
+    <%= f.input :description, label: "Description de votre offre", placeholder: "Précisez les détails et conditions de votre offre " %>
+    <%= f.input :date, as: :date %>
+    <%= f.input :quantity, label: "Nombre d'offres disponibles", as: :string  %>
+    <%= f.input :price, as: :string %>
+    <%= f.input :duration, as: :string %>
+    <%= f.input :category_id, collection: @categories, label: "Sélectionnez votre catégorie" %>
+    <%= f.input :image, label: "Photo de votre promotion", hint: "Une belle photo de votre menu attirera plus de monde" %>
+    <%= f.input :image_cache, as: :hidden %>
+
+    <%= link_to "Annuler", seller_path(@seller) %>
+    <%= f.submit "Mettre à jour", class: "btn btn--primary" %>
+      <p>Créer</p>
+  <% end %>
+
+</section>

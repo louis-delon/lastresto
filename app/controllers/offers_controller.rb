@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
 
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_seller, only: [:edit, :update, :destroy]
   before_action :params_offer, only: [:create, :update]
   # buyer can see an offer in order to make a reservation
   skip_before_action :authenticate_buyer!, except: :show
@@ -33,14 +34,15 @@ class OffersController < ApplicationController
   end
 
   def edit
+    @seller = Seller.find(params[:seller_id])
   end
 
   def update
     @offer.update(params_offer)
+    redirect_to myadmins_offers_path
   end
 
   def show
-    @buyer = current_buyer
     @reservation = Reservation.new
   end
 
@@ -69,6 +71,10 @@ class OffersController < ApplicationController
   def set_offer
     @offer = Offer.find(params[:id])
     authorize @offer
+  end
+
+  def set_seller
+    @seller = Seller.find(params[:seller_id])
   end
 
 end

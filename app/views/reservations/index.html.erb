@@ -13,7 +13,8 @@
           <p><%= reservation.offer.title %></p>
           <p><%= reservation.offer.price %> euros (<%= reservation.offer.date %>)</p>
           <p>Vous êtes attendus à <%= reservation.time %> heures</p>
-          <%= link_to "Annuler", offer_reservation_path([reservation.offer, reservation]), method: :delete, :class => "btn btn-small", data: { confirm: "Etes vous sûr de vouloir annuler votre réservation?" } %>
+
+
         </div>
 
       </div>
