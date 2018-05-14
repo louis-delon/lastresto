@@ -1,2 +1,11 @@
-<h1>Preferences#new</h1>
-<p>Find me in app/views/preferences/new.html.erb</p>
+<section class="container">
+
+  <h1>Ajouter des préférences</h1>
+  <br>
+  <%= simple_form_for([@buyer, @preference]) do |f| %>
+    <%= f.input :category_id, collection: @categories, as: :check_boxes, label: "Sélectionnez vos préférences" %>
+    <%= f.submit "Valider", class: "btn btn--primary" %>
+  <% end %>
+</section>
+
+

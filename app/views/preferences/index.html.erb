@@ -1,2 +1,19 @@
-<h1>Preferences#index</h1>
-<p>Find me in app/views/preferences/index.html.erb</p>
+<section class="container">
+
+  <h1>Mes préférences</h1>
+  <br>
+  <% if @preferences.exists? %>
+    <% @preferences.each do |preference| %>
+     <p><%= preference.category.name %></p>
+     <%= link_to "Supprimer", buyer_preference_path(@buyer, preference) %>
+    <% end %>
+    <%= link_to "Mettre à jour mes préférences", edit_buyer_preference_path(@buyer) %>
+  <% else %>
+    <p><%= "Séléctionnez les alertes que vous souhaitez recevoir" %></p>
+    <%= link_to "Ajouter des préférences", new_buyer_preference_path(@buyer) %>
+  <% end %>
+
+<br><br>
+
+
+</section>

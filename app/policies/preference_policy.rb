@@ -1,4 +1,4 @@
-class PreferencesPolicy < ApplicationPolicy
+class PreferencePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
@@ -15,11 +15,11 @@ class PreferencesPolicy < ApplicationPolicy
   end
 
   def show?
-    current_buyer?
+    current_buyer_is_owner?
   end
 
   def update?
-    current_buyer?
+    current_buyer_is_owner?
   end
 
   def edit?
