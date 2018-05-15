@@ -2,18 +2,21 @@
 
   <h1>Mes préférences</h1>
   <br>
-  <% if @preferences.exists? %>
-    <% @preferences.each do |preference| %>
-     <p><%= preference.category.name %></p>
-     <%= link_to "Supprimer", buyer_preference_path(@buyer, preference) %>
-    <% end %>
-    <%= link_to "Mettre à jour mes préférences", edit_buyer_preference_path(@buyer) %>
+  <% if @preferences_by_category.empty? %>
+    <p><%= "Vous n'avez pas encore défini de préférences de restautants" %></p>
+    <%= link_to "créer mes préférences", new_buyer_preference_path(@buyer), {class: "button btn primary"} %>
   <% else %>
-    <p><%= "Séléctionnez les alertes que vous souhaitez recevoir" %></p>
-    <%= link_to "Ajouter des préférences", new_buyer_preference_path(@buyer) %>
+    <% @preferences_by_category.each do |category| %>
+      <% preference = Preference.find_by(category_id: category.id)%>
+      <table>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= link_to "Supprimer", buyer_preference_path(@buyer, preference), method: :delete %></td>
+        </tr>
+      </table>
+    <% end %>
+    <%= link_to "modifier mes préférences", new_buyer_preference_path(@buyer)  %>
   <% end %>
 
-<br><br>
-
-
 </section>
+
