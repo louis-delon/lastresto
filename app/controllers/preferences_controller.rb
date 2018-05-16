@@ -1,37 +1,50 @@
 class PreferencesController < ApplicationController
 
   before_action :set_buyer
-  before_action :set_preference, only: [:edit, :update, :destroy]
+  before_action :set_preference, only: [:edit, :destroy]
   skip_before_action :authenticate_seller!
 
   def index
-    # all the choices of preferences that a buyer can select
-    @categories = Category.all
+    @preferences = policy_scope(Preference)
     # select the preferences already choosen by the buyer
-    @preferences = policy_scope(Preference).where(buyer_id: current_buyer.id)
-    @preferences_by_category = @preferences.map { |preference| preference.category}
-    @non_selected_categories = @categories - @preferences_by_category
-
+    @buyer_selected_preferences = @preferences.where(buyer_id: current_buyer.id)
   end
 
   def new
     @categories = Category.all
-    # select the preferences already choosen by the buyer
-    @preferences = policy_scope(Preference).where(buyer_id: current_buyer.id)
-    @preferences_by_category = @preferences.map { |preference| preference.category}
-    @non_selected_categories = @categories - @preferences_by_category
+    @list_of_all_category_id = @categories.map { |category| category.id }
+    @preferences = Preference.all
+    @buyer_selected_preferences = @preferences.where(buyer_id: current_buyer.id)
+    @list_of_selected_category_id = @buyer_selected_preferences.map { |preference| preference.category_id }
+    @list_of_not_selected_category_id = @list_of_all_category_id - @list_of_selected_category_id
     @preference = Preference.new
     authorize @preference
   end
 
   def create
+
+    @categories = Category.all
+    @list_of_all_category_id = @categories.map { |category| category.id }
+    @preferences = Preference.all
+    @buyer_selected_preferences = @preferences.where(buyer_id: current_buyer.id)
+    @list_of_selected_category_id = @buyer_selected_preferences.map { |preference| preference.category_id }
+    @list_of_not_selected_category_id = @list_of_all_category_id - @list_of_selected_category_id
+
     @preference = Preference.new(params_preferences)
+    @preference.buyer_id = @buyer.id
+
     authorize @preference
+    if @preference.save
+      redirect_to buyer_preferences_path
+    else
+      render :new
+    end
   end
 
   def destroy
     @preference.destroy
     authorize @preference
+    redirect_to buyer_preferences_path
   end
 
   private

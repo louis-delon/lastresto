@@ -2,15 +2,14 @@
 
   <h1>Mes préférences</h1>
   <br>
-  <% if @preferences_by_category.empty? %>
+  <% if @buyer_selected_preferences.empty? %>
     <p><%= "Vous n'avez pas encore défini de préférences de restautants" %></p>
     <%= link_to "créer mes préférences", new_buyer_preference_path(@buyer), {class: "button btn primary"} %>
   <% else %>
-    <% @preferences_by_category.each do |category| %>
-      <% preference = Preference.find_by(category_id: category.id)%>
+    <% @buyer_selected_preferences.each do |preference| %>
       <table>
         <tr>
-          <td><%= category.name %></td>
+          <td><%= preference.category.name %></td>
           <td><%= link_to "Supprimer", buyer_preference_path(@buyer, preference), method: :delete %></td>
         </tr>
       </table>
