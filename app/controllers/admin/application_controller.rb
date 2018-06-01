@@ -9,7 +9,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to '/', alert: 'Not authorized.' unless current_seller.admin?
+      redirect_to '/', alert: 'vous n\'etes pas authorisés à vous rendre sur cette page' unless current_seller.admin?
 
       # TODO Add authentication logic here.
     end
