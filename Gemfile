@@ -43,6 +43,7 @@ gem 'autoprefixer-rails'
 gem 'awesome_print'
 gem 'administrate'
 
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
